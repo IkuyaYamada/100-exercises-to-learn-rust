@@ -18,7 +18,8 @@ mod tests {
 
     #[test]
     fn u64_mut_ref_size() {
-        assert_eq!(size_of::<&u64>(), 8)}
+        assert_eq!(size_of::<&mut u64>(), todo!());
+    }
 
     #[test]
     fn ticket_ref_size() {
