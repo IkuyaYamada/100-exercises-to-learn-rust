@@ -15,10 +15,9 @@ use std::ops::Add;
 impl Add<Self> for WrappingU32 {
     type Output = WrappingU32;
     fn add(self, rhs: WrappingU32) -> WrappingU32 {
-        let num = self.value + rhs.value;
+        let num: u32 = self.value.wrapping_add(rhs.value);
         WrappingU32::new(num)
     }
-
 }
 
 #[cfg(test)]

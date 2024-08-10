@@ -46,7 +46,8 @@ impl Add for SaturatingU16 {
     type Output = SaturatingU16;
 
     fn add(self, rhs: Self) -> Self::Output {
-        self + rhs.value
+        let num: u16 = self.value.saturating_add(rhs.value);
+        Self { value: num }
     }
 }
 
@@ -54,7 +55,7 @@ impl Add<&Self> for SaturatingU16 {
     type Output = SaturatingU16;
 
     fn add(self, rhs: &Self) -> SaturatingU16 {
-        let num = self.value + rhs.value;
+        let num: u16 = self.value.saturating_add(rhs.value);
         Self { value: num }
     }
 }

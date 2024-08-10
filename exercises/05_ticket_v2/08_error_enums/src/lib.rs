@@ -50,7 +50,7 @@ impl Ticket {
             ));
         }
         if title.len() > 50 {
-            return Err("Title cannot be longer than 50 bytes".to_string());
+            return Err(TicketNewError::TitleError(("Title cannot be longer than 50 bytes".to_string())));
         }
         if description.is_empty() {
             return Err(TicketNewError::DescriptionError(
@@ -58,7 +58,7 @@ impl Ticket {
             ));
         }
         if description.len() > 500 {
-            return Err("Description cannot be longer than 500 bytes".to_string());
+            return Err(TicketNewError::DescriptionError(("Description cannot be longer than 500 bytes".to_string())));
         }
 
         Ok(Ticket {
